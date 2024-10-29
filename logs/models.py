@@ -16,6 +16,9 @@ class Log(models.Model):
     message = models.TextField(max_length=256, blank=False, null=False)
     timestamp = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ["timestamp"]
+
     def level_to_string(self):
         if self.level == LOG_LEVEL_INFO:
             return "Info"
